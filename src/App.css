@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Montserrat:wght@100;400&family=Nunito+Sans:opsz,wght@6..12,800&family=Plus+Jakarta+Sans&family=Poppins&family=Rammetto+One&display=swap");
+
+body {
+  font-family: "Montserrat";
+  background: #f6f6f5;
+  scroll-behavior: unset;
+}
+* {
+  scroll-behavior: unset;
+}
+body::-webkit-scrollbar {
+  width: 10px; /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: rgb(174, 173, 170); /* color of the tracking area */
+  border-radius: 20px; /* roundness of the scroll thumb */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(106, 106, 112); /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+}
+
+/* details card scroll baar */
+
+.product-details-card::-webkit-scrollbar {
+  width: 12px; /* width of the entire scrollbar */
+}
+
+.product-details-card::-webkit-scrollbar-track {
+  background: white; /* color of the tracking area */
+  border-radius: 5px; /* roundness of the scroll thumb */
+}
+
+.product-details-card::-webkit-scrollbar-thumb {
+  background-color: rgb(106, 106, 112); /* color of the scroll thumb */
+  border-radius: 10px; /* roundness of the scroll thumb */
+}
