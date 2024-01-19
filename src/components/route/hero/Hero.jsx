@@ -13,9 +13,9 @@ const Hero = () => {
           backgroundSize: "100% 100%",
         }}
       >
-        <div className="w-[60%] mx-auto">
-          <div className="max-w-[800px] py-[14%]">
-            <h1 className="text-[55px] leading-[1.2] text-[#3d3a3a] font-[600] capitalize ">
+        <div className=" w-[90%] lg:w-[80%] xl:w-[60%] mx-auto">
+          <div className="max-w-[800px] py-[4%] lg:py-[8%] xl:py-[14%]">
+            <h1 className="text-[30px] lg:text-[40px] xl:text-[55px] leading-[1.2] text-[#3d3a3a] font-[600] capitalize ">
               Best Collection for
               <br /> home Decaration
             </h1>
