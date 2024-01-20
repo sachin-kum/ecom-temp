@@ -24,16 +24,35 @@ body::-webkit-scrollbar-thumb {
 
 /* details card scroll baar */
 
-.product-details-card::-webkit-scrollbar {
+.listOpen, .product-details-card::-webkit-scrollbar {
   width: 12px; /* width of the entire scrollbar */
 }
 
-.product-details-card::-webkit-scrollbar-track {
+.listOpen, .product-details-card::-webkit-scrollbar-track {
   background: white; /* color of the tracking area */
   border-radius: 5px; /* roundness of the scroll thumb */
 }
 
-.product-details-card::-webkit-scrollbar-thumb {
+.listOpen, .product-details-card::-webkit-scrollbar-thumb {
+  background-color: rgb(106, 106, 112); /* color of the scroll thumb */
+  border-radius: 10px; /* roundness of the scroll thumb */
+}
+h1,h2,p,div,img,svg,h3,h4{
+  user-select: none;
+}
+
+/* list open scroll baar */
+
+.listOpen::-webkit-scrollbar {
+  width: 12px; /* width of the entire scrollbar */
+}
+
+.listOpen::-webkit-scrollbar-track {
+  background: white; /* color of the tracking area */
+  border-radius: 5px; /* roundness of the scroll thumb */
+}
+
+.listOpen::-webkit-scrollbar-thumb {
   background-color: rgb(106, 106, 112); /* color of the scroll thumb */
   border-radius: 10px; /* roundness of the scroll thumb */
 }

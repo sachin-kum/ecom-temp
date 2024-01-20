@@ -16,8 +16,13 @@ import Dropwon from "./Dropwon";
 import NavList from "./NavList";
 import Cart from "../cart/Cart";
 import { CountDown, CountDown2 } from "../events/CountDown";
+import { useSelector } from "react-redux";
+import { backend_url } from "../../server";
+import WishList from "../wishlist/WishList";
 
 const Header = ({ activeHeading }) => {
+  const { isAuthnticated, data } = useSelector((state) => state.user);
+  console.log("user", isAuthnticated);
   const navigate = useNavigate();
 
   const [seacrhItem, setSearchItem] = useState("");
@@ -27,7 +32,9 @@ const Header = ({ activeHeading }) => {
   const [catData, setCatData] = useState([]);
   const [active, setActive] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
+  const[wishListOpen,setWishListOpen]=useState(false)
   const [searchDrop, setSearDrop] = useState(true);
+  
 
   const seacrhItemChange = (e) => {
     let serach = e.target.value;
@@ -244,7 +251,8 @@ const Header = ({ activeHeading }) => {
 
               <div className="flex">
                 <div className={`${styles.noramlFlex}`}>
-                  <div className="relative cursor-pointer mr-[15px]">
+                  <div className="relative cursor-pointer mr-[15px]" 
+                     onClick={() => setWishListOpen(true)}>
                     <AiOutlineHeart size={30} color="rgb(255 255 255 / 83%)" />
                     <span className="absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
                       0
@@ -253,11 +261,13 @@ const Header = ({ activeHeading }) => {
                 </div>
 
                 <div className={`${styles.noramlFlex}`}>
-                  <div className="relative cursor-pointer mr-[15px]">
+                  <div className="relative cursor-pointer mr-[15px]"
+                  onClick={() => setCartOpen(true)}
+                  >
                     <AiOutlineShoppingCart
                       size={30}
                       color="rgb(255 255 255 / 83%)"
-                      onClick={() => setCartOpen(true)}
+                      
                     />
                     <span className="absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
                       1
@@ -267,18 +277,30 @@ const Header = ({ activeHeading }) => {
 
                 <div className={`${styles.noramlFlex}`}>
                   <div className="relative cursor-pointer mr-[15px]">
-                    <NavLink to="/login">
-                      <CgProfile size={30} color="rgb(255 255 255 / 83%)" />
-                    </NavLink>
+                    {isAuthnticated ? (
+                      <NavLink to="/profile">
+                        <img
+                          src={`${backend_url}${data?.data?.avatar}`}
+                          alt=""
+                          className="w-[40px] h-[40px] rounded-full border-[3px] border-[#0eae88]"
+                        />
+                      </NavLink>
+                    ) : (
+                      <NavLink to="/login">
+                        <CgProfile size={30} color="rgb(255 255 255 / 83%)" />
+                      </NavLink>
+                    )}
                   </div>
                 </div>
+               
               </div>
             </section>
           </div>
+           {cartOpen ? <Cart setCartOpen={setCartOpen} cartOpen={cartOpen}/> : null}
+           {wishListOpen ? <WishList setWishListOpen={setWishListOpen} cartOpen={wishListOpen}/> : null}
+
         </>
       )}
-
-      {cartOpen ? <Cart /> : null}
     </>
   );
 };

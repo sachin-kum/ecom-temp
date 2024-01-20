@@ -19,13 +19,15 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import Cookies from "js-cookie";
 import Header from "./components/layout/Header";
-import Protected from "./components/Protected";
-import Protected2 from "./components/Protected2";
+import Protected from "./components/auth/Protected";
+import Protected2 from "./components/auth/Protected2";
 
 function App() {
+  
   return (
     <>
       <BrowserRouter>
+   { console.log("chusindar")}
         {/* <Header /> */}
         <Routes>
           <Route path="/" element={<Protected Component={HomePage} />} />
@@ -42,7 +44,11 @@ function App() {
             path="/best-selling"
             element={<Protected Component={BestSellingpage} />}
           />
-          <Route path="/faq" element={<FAQPage />} />
+           <Route
+            path="/faq"
+            element={<Protected Component={FAQPage} />}
+          />
+          {/* <Route path="/faq" element={<FAQPage />} /> */}
 
           <Route path="/login" element={<LoginPage />} />
           <Route path="/sign-up" element={<SignupPage />} />

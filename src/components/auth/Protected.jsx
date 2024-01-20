@@ -1,7 +1,7 @@
 import Cookies from "js-cookie";
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { LoadUser } from "../redux/actions/userAction";
+import { LoadUser } from "../../redux/actions/userAction";
 
 const Protected = (props) => {
   const token = Cookies.get("token");

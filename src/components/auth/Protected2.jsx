@@ -1,9 +1,9 @@
 import Cookies from "js-cookie";
 import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Header from "./layout/Header";
-import Footer from "./layout/Footer";
 import { FaArrowRightLong } from "react-icons/fa6";
+import Footer from "../layout/Footer";
+import Header from "../layout/Header";
 
 const Protected2 = (props) => {
   const { Component } = props;
