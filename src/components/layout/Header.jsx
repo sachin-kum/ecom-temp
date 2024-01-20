@@ -267,7 +267,7 @@ const Header = ({ activeHeading }) => {
 
                 <div className={`${styles.noramlFlex}`}>
                   <div className="relative cursor-pointer mr-[15px]">
-                    <NavLink to="login">
+                    <NavLink to="/login">
                       <CgProfile size={30} color="rgb(255 255 255 / 83%)" />
                     </NavLink>
                   </div>

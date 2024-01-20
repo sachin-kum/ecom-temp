@@ -19,26 +19,29 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import Cookies from "js-cookie";
 import Header from "./components/layout/Header";
+import Protected from "./components/Protected";
+import Protected2 from "./components/Protected2";
 
 function App() {
-  const token = Cookies.get("token");
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (token) {
-      dispatch(LoadUser(token));
-    }
-  }, [token]);
   return (
     <>
       <BrowserRouter>
         {/* <Header /> */}
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/best-selling" element={<BestSellingpage />} />
-          <Route path="/products" element={<ProductPage />} />
-          <Route path="/events" element={<Eventpage />} />
+          <Route path="/" element={<Protected Component={HomePage} />} />
+          <Route
+            path="/events"
+            element={<Protected2 Component={Eventpage} />}
+          />
+          {/* <Route path="/events" element={<Eventpage />} /> */}
+          <Route
+            path="/products"
+            element={<Protected Component={ProductPage} />}
+          />
+          <Route
+            path="/best-selling"
+            element={<Protected Component={BestSellingpage} />}
+          />
           <Route path="/faq" element={<FAQPage />} />
 
           <Route path="/login" element={<LoginPage />} />
@@ -48,6 +51,18 @@ function App() {
             element={<ActivationPage />}
           />
         </Routes>
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
       </BrowserRouter>
     </>
   );

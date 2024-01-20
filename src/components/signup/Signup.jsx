@@ -46,12 +46,13 @@ const Singup = () => {
       .post(`${server}/user/create-user`, formdata, config)
       .then((res) => {
         toast.success(res.data.message);
+
         setLoading(false);
       })
       .catch((error) => {
         setLoading(false);
 
-        toast.error(error.response.data.message);
+        // toast.error(error.response.data.message);
       });
   };
 
